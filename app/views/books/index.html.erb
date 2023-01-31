@@ -1,0 +1,89 @@
+<main>
+  <p id="notice"><%= flash[:notice] %></p>
+  <div class='container px-5 px-sm-0'>
+    <div class='row'>
+      <div class='col-md-3'>
+      
+    <% if @book.errors.any? %>
+     <div class= "errors">
+      <div class="errors-head"><%= @book.errors.count %>error prohibited this obj from being saved:</div>
+      <% @book.errors.full_messages.each do |message| %>
+        <div class= "errors-content">
+          <ul>
+            <li class="errors-text"><%= message %></li>
+          </ul>
+        </div>
+      <% end %>
+     </div>
+    <% end %>
+      
+      
+        <h2>User info</h2>
+        <table class='table'>
+          <tr>
+            <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "default-image.jpg" %>
+          </tr>
+          <tr>
+            <th>name</th>
+            <th><%= @user.name %></th>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <th><%= @user.introduction %></th>
+          </tr>
+        </table>　 
+        <div class='row'>
+          <% if @user.id == current_user.id %>
+            <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block" do %>
+            <i class="fas fa-user-cog"></i>
+            <% end %>
+          <% end %>
+        </div>
+
+
+ <!--新規投稿-->
+
+       <div class="form-group">
+         <h2 class="mt-3">New book</h2>
+         <%= form_with model:@book, local:true do |f| %>
+         <div class="form-group">
+           <label for="book_title">Title</label>
+           <%= f.text_field :title, class: "form-control"%>
+         </div>
+         <div class="form-group">
+           <label for="book_opinion">Opinion</label>
+           <%= f.text_area :body, class: "form-control"%>
+         </div>
+          <div><%= f.submit 'Create Book', class: "btn btn-success" %></div>
+          <% end %>
+      </div>
+      </div>
+      
+    <!--books一覧-->
+      <div class='col-md-8 offset-md-1'>
+        <h2>Books</h2>
+        <table class='table table-hover table-inverse'>
+        <thead>
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Opinion</th>
+              <th colspan="3"></th>
+            </tr>
+        </thead>
+      <tbody>
+         <% @books.each do |book| %>
+            <tr> 
+            <td><%= link_to user_path(book.user.id) do %>
+            <%= image_tag 'default-image.jpg' %>
+        　　<% end %></td>
+             <td><%= link_to book.title, book_path(book.id)%></td>
+             <td><%= book.body %></td>
+           </tr>
+         <% end %>
+      </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
