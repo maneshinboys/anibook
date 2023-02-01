@@ -12,43 +12,43 @@
           <% if user_signed_in? %>
           <li>
              <a class="nav-link text-light" href="/users/<%= current_user.id %>">
-              <i class="fas fa-home"></i>Home
+              <i class="fas fa-home"></i>マイページ
             </a>
           </li>
           <li>
             <a class="nav-link text-light" href="/users">
-              <i class="fas fa-users"></i>Users
+              <i class="fas fa-users"></i>ユーザー一覧
             </a>
           </li>
           <li>
             <a class="nav-link text-light" href="/books">
-              <i class="fas fa-book-open"></i>Posts
+              <i class="fas fa-book-open"></i>みんなの投稿
             </a>
           </li>
           <li>
             <a class="nav-link text-light" rel="nofollow" data-method="delete" href="/users/sign_out">
-              <i class="fas fa-sign-out-alt"></i>Log out
+              <i class="fas fa-sign-out-alt"></i>ログアウト
             </a>
           </li>
           <% else %>
           <li>
             <a class="nav-link text-light" href="/">
-              <i class="fas fa-home"></i>Home
+              <i class="fas fa-home"></i>ホーム
             </a>
           </li>
           <li>
             <a class="nav-link text-light" href="/home/about">
-              <i class="fas fa-link"></i>About
+              <i class="fas fa-link"></i>私について
             </a>
           </li>
           <li>
             <a class="nav-link text-light" href="/users/sign_up">
-              <i class="fas fa-user-plus"></i>Sign up
+              <i class="fas fa-user-plus"></i>サインアップ
             </a>
           </li>
           <li>
             <a class="nav-link text-light" href="/users/sign_in">
-              <i class="fas fa-sign-in-alt"></i>Log in
+              <i class="fas fa-sign-in-alt"></i>ログイン
             </a>
           </li>
           <% end %>
