@@ -27,8 +27,8 @@
           <%= f.text_area :body, autofocus: true, class: "form-control" %>
         </div>
         <%= f.submit '編集を保存', class: "btn btn-success" %>
+     <%= link_to '戻る', book_path(@book.id), class: "btn btn-secondary"%>
       <% end %>
-     <%= link_to '戻る', book_path(@book.id) %>
      </div>
     </div>
   </div>

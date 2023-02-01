@@ -57,7 +57,7 @@
             <tr> 
              <td><%= attachment_image_tag user, :profile_image, fallback: "default-image.jpg" %></td>
              <td><%= user.name %></td>
-             <td><%= link_to "詳細", user_path(user.id), class: "btn btn-success" %></td>
+             <td><%= link_to "詳細", user_path(user.id), class: "btn btn-primary" %></td>
             </tr>
             <% end %>
           </tbody>
